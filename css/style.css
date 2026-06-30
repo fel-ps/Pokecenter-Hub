@@ -1,0 +1,42 @@
+.top-divider{
+    position: fixed;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+
+    background: rgba(255,255,255,.15);
+
+    z-index: 998;
+}
+
+.logo-area{
+    position: fixed;
+    top: 18px;
+    left: 40px;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    z-index: 1000;
+}
+
+.logo-area img{
+    width: 30px;   /* antes era 46px */
+    height: 30px;
+    object-fit: contain;
+}
+
+.logo-area h1{
+    font-size: 1.55rem;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: .5px;
+    user-select: none;
+}
+
+.logo-area span{
+    color: #8ab4ff; /* Azul Pokémon */
+    font-weight: 800;
+}
