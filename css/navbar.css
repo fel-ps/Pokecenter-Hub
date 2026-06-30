@@ -38,24 +38,74 @@ body {
   top: 1.25rem;
   right: 1.25rem;
   z-index: 30;
-  width: 3rem;
-  height: 3rem;
-  border: 0;
-  border-radius: 50%;
-  background: rgba(149, 153, 226, 0.25);
-  color: #fff;
-  font-size: 1.3rem;
+
+  width: 40px;
+  height: 40px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 7px;
+
+  padding: 0;
+  border: none;
+  background: transparent;
   cursor: pointer;
-  transition: transform 0.3s ease, background-color 0.3s ease;
+  transition: transform .3s ease;
 }
+
+/* ===== Botão Hamburguer (Estado Normal) ===== */
+
+.navbar-component__toggle span {
+  display: block;
+  height: 2px;
+  width: 40px; /* Todas começam com o tamanho total do container */
+  background: #fff;
+  border-radius: 999px;
+  transition: all .45s cubic-bezier(.68,-0.55,.265,1.55);
+}
+
+/* Controlamos o tamanho visual usando scaleX, mantendo o ponto de origem correto */
+.navbar-component__toggle span:nth-child(1) {
+  transform-origin: left;
+  transform: scaleX(0.5); /* Fica com 20px (metade de 40px), alinhada à esquerda */
+}
+
+.navbar-component__toggle span:nth-child(3) {
+  transform-origin: right;
+  transform: scaleX(0.5); /* Fica com 20px, alinhada à direita */
+}
+
+/* ===== Ícone Aberto (X) ===== */
+
+.navbar-component__toggle.is-active span {
+  background: var(--accent);
+}
+
+.navbar-component__toggle.is-active span:nth-child(1) {
+  width: 34px; /* Mantém o tamanho fixo de 24px */
+  /* Reseta a origem para o centro para rotacionar perfeitamente */
+  transform-origin: center; 
+  /* scaleX(0.8) faz os 40px virarem exatamente os 32px que você queria */
+  transform: translateY(9px) TranslateX(-2px) rotate(45deg);
+}
+
+.navbar-component__toggle.is-active span:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+.navbar-component__toggle.is-active span:nth-child(3) {
+  width: 34px; /* Mantém o tamanho fixo de 24px */
+  transform-origin: center;
+  transform: translateY(-9px) TranslateX(-2px) rotate(-45deg);
+}
+
+/* sssssssssss */
 
 .navbar-component__toggle:hover {
   transform: scale(1.05);
-}
-
-.navbar-component__toggle.is-active {
-  background: #fff;
-  color: var(--accent);
 }
 
 .navbar-component__nav {

@@ -33,8 +33,10 @@ class AppNavbar extends HTMLElement {
 
         this.innerHTML = `
             <section class="navbar-component" aria-label="${title}">
-                <button class="navbar-component__toggle" type="button" aria-label="Abrir menu" aria-expanded="false">
-                    <span aria-hidden="true">☰</span>
+                <button class="navbar-component__toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
                 </button>
 
                 <nav class="navbar-component__nav">
@@ -56,11 +58,11 @@ class AppNavbar extends HTMLElement {
         const nav = this.querySelector('.navbar-component__nav');
         const icon = toggle.querySelector('span');
 
-        toggle.addEventListener('click', () => {
-            const isOpen = nav.classList.toggle('is-open');
-            toggle.classList.toggle('is-active', isOpen);
-            toggle.setAttribute('aria-expanded', String(isOpen));
-            icon.textContent = isOpen ? '✕' : '☰';
+        toggle.addEventListener("click", () => {
+            const isOpen = nav.classList.toggle("is-open");
+
+            toggle.classList.toggle("is-active", isOpen);
+            toggle.setAttribute("aria-expanded", isOpen);
         });
     }
 }
